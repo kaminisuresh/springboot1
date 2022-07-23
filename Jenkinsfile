@@ -4,10 +4,20 @@ pipeline{
 		
   stages {
     
-    
+    stage('Parameters'){
+                steps {
+                    script {
+                    properties([
+                            parameters([
+                              string(name: 'ServiceBranch')							  
+							])
+						])
+					}
+				}
+			}
     stage('GitClone') {
 	  steps {
-	    git branch: "master",
+	    git branch: "${params.ServiceBranch}",
             url: 'https://github.com/kaminisuresh/springboot1.git',
 	    credentialsId: 'jenkins'
 	  }
