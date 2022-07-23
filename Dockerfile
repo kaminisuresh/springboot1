@@ -1,4 +1,5 @@
-FROM kaminis/wcc_base:1
+#FROM kaminis/wcc_base:1
+FROM wcc_base
 ARG SERVICE_BASE_PATH=/wcc-services/coy-wcc-services-application
 WORKDIR $SERVICE_BASE_PATH 
 COPY startup.sh .
